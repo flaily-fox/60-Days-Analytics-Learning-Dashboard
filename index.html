@@ -3,127 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>60-Day DA Roadmap with Tanya!</title>
-    
+    <title>60-Day Data Analytics Roadmap</title>
+
     <!-- Tailwind CSS CDN for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Chart.js CDN for interactive charts -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Google Fonts -->
+
+    <!-- Google Fonts: Inter for clean, modern look (with emphasis on bold weights) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles (Embedded for self-containment) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles for the Data Analytics Roadmap Dashboard (Advillains Inspired) -->
     <style>
-        /* Custom Styles for the Data Analytics Roadmap Dashboard */
-
-        /* --- Custom Color Palette (Dashboard Tennis Theme) --- */
+        /* --- Custom Color Palette (Advillains Inspired - Dark & Vibrant) --- */
         :root {
-            --color-body-bg: #F0F2F5; /* Very light grey-blue for background */
-            --color-primary-text: #2C3E50; /* Dark charcoal blue for main text */
-            --color-secondary-text: #7F8C8D; /* Medium grey-blue for secondary text/details */
-            --color-card-bg: #FFFFFF; /* Pure white for cards/panels */
-            
-            /* Sporty accent colors */
-            --color-accent-main: #3498DB; /* Bright blue for main accents */
-            --color-accent-secondary: #2ECC71; /* Vibrant green for secondary accents/hovers */
-            --color-accent-tertiary: #F39C12; /* Bright orange/yellow for subtle highlights */
+            --color-bg-primary: #121212; /* Very dark almost black background */
+            --color-bg-secondary: #1E1E1E; /* Slightly lighter dark gray for cards/panels */
+            --color-text-light: #E0E0E0; /* Light gray for primary text */
+            --color-text-medium: #A0A0A0; /* Medium gray for secondary text/details */
+            --color-text-dark: #707070; /* Darker gray for subtle text on light elements (if any) */
 
-            /* Mapped to existing variable names for consistency and reusability */
-            --color-accent-green: var(--color-accent-main); /* Main accent: progress bar, headings, primary chart color */
-            --color-accent-teal: var(--color-accent-secondary); /* Secondary accent: active nav, chart hover, some links */
-            --color-accent-yellow-confetti: var(--color-accent-tertiary); /* Confetti will be orange/yellow */
-            --color-accent-chart-bar: var(--color-accent-main); /* Explicit color for chart bars (bright blue) */
+            /* Accent Colors - High Contrast & Vibrant */
+            --color-accent-primary-highlight: #52C41A; /* Primary highlight - now green! */
+            --color-accent-blue: #1890FF; /* Vibrant blue for secondary accents/links */
+            --color-accent-green: #52C41A; /* Success/completion green (same as primary highlight for consistency) */
+            --color-accent-purple: #722ED1; /* Deep purple for tertiary accents */
+            --color-accent-yellow: #FAAD14; /* Warm yellow for additional highlights */
 
-            /* Derived colors for components based on new palette */
-            --color-progress-bar-fill: var(--color-accent-green);
-            --color-nav-active-bg: var(--color-accent-secondary); /* Active weekly nav button background (green) */
-            --color-nav-active-text: var(--color-card-bg); /* White text on active nav button for contrast */
-            --color-completed-card-bg: #E8EDF0; /* Slightly darker light grey-blue for completed cards */
-            --color-completed-border: var(--color-accent-secondary); /* Green border for completed tasks */
-            --color-motivation-bg: #EBF5FB; /* Very light blue for motivation box */
-            --color-motivation-border: #D1E5F0; /* Soft blue border for motivation box */
-
-            /* Community Button Specifics (keeping original brand colors for recognition) */
-            --color-whatsapp-bg: #22C55E; /* Standard WhatsApp green */
-            --color-whatsapp-hover: #1EAF55; /* Darker green on hover */
-            --color-telegram-bg: #0EA5E9; /* Standard Telegram blue */
-            --color-telegram-hover: #0C92D3; /* Darker blue on hover */
+            /* UI Specifics */
+            --color-border-dark: #333333; /* Dark border for separation */
+            --color-shadow-dark: rgba(0, 0, 0, 0.4); /* Pronounced dark shadow */
+            --color-shadow-hover: rgba(0, 0, 0, 0.6); /* Even deeper shadow on hover */
+            --color-progress-track: #333333; /* Dark track for progress bar */
         }
 
-        /* --- Font --- */
-        .font-poppins {
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Applying custom colors via Tailwind-like classes */
-        .bg-body-bg { background-color: var(--color-body-bg); }
-        .text-primary-text { color: var(--color-primary-text); }
-        .text-secondary-text { color: var(--color-secondary-text); }
-        .bg-card-bg { background-color: var(--color-card-bg); }
+        /* Applying custom colors via Tailwind-like classes for consistency */
+        .bg-primary { background-color: var(--color-bg-primary); }
+        .bg-secondary { background-color: var(--color-bg-secondary); }
+        .text-light { color: var(--color-text-light); }
+        .text-medium { color: var(--color-text-medium); }
+        .text-dark { color: var(--color-text-dark); }
+        .text-accent-primary-highlight { color: var(--color-accent-primary-highlight); }
+        .bg-accent-primary-highlight { background-color: var(--color-accent-primary-highlight); }
+        .text-accent-blue { color: var(--color-accent-blue); }
+        .bg-accent-blue { background-color: var(--color-accent-blue); }
         .text-accent-green { color: var(--color-accent-green); }
-        .bg-accent-green { background-color: var(--color-accent-green); } /* For progress bar */
-        /* Custom classes for the main tabs, matching the new palette mapping */
-        .bg-accent-teal { background-color: var(--color-accent-teal); } 
-        .text-body-bg { color: var(--color-body-bg); } 
-        .hover\:bg-gray-800:hover { background-color: #E6E8EB; } /* Lighter hover for inactive default tabs */
+        .bg-accent-green { background-color: var(--color-accent-green); }
+        .text-accent-purple { color: var(--color-accent-purple); }
+        .border-dark { border-color: var(--color-border-dark); }
+        .shadow-advillains { box-shadow: 0 10px 20px -8px var(--color-shadow-dark); }
+        .shadow-advillains-hover { box-shadow: 0 15px 30px -10px var(--color-shadow-hover); }
+        .progress-track { background-color: var(--color-progress-track); }
 
+        /* --- Font (Inter) --- */
+        .font-inter {
+            font-family: 'Inter', sans-serif;
+        }
 
         /* --- General Styling --- */
-        h1, h2, h3 {
-            letter-spacing: -0.025em; /* Slightly tighter letter spacing for modern feel */
+        h1, h2, h3, h4 {
+            letter-spacing: -0.04em; /* Tighter letter spacing for impactful headings */
+        }
+        body {
+            line-height: 1.6; /* Slightly increased line height for readability on dark background */
         }
 
         /* --- Chart Container Styling --- */
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 800px; /* Limit chart width */
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px; /* Fixed height for smaller screens */
-            max-height: 40vh; /* Responsive height */
+            max-width: 800px;
+            margin: 0 auto;
+            height: 280px; /* Slightly taller for better visualization */
+            background-color: var(--color-bg-secondary); /* Chart container matches card background */
+            border-radius: 1rem; /* Rounded corners for chart container */
+            padding: 1rem;
         }
 
         @media (min-width: 768px) {
             .chart-container {
-                height: 350px; /* Slightly taller for larger screens */
+                height: 350px;
             }
         }
 
         /* --- Main Tab Buttons Styling --- */
         .main-tab-button {
-            color: var(--color-primary-text);
-            background-color: var(--color-card-bg);
-            border: 1px solid #DDDDDD; /* Light grey border for tabs */
-            padding: 0.75rem 1.5rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            flex-grow: 1; /* Make them take equal width within the flex container */
+            color: var(--color-text-medium);
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-dark);
+            padding: 0.85rem 1.75rem; /* Slightly larger padding */
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
+            flex-grow: 1;
             text-align: center;
-            border-radius: 0.5rem; /* Apply rounded corners */
-        }
-
-        .main-tab-button:not(:last-child) {
-            margin-right: 0.5rem; /* Space between buttons */
+            border-radius: 0.75rem; /* More rounded */
+            box-shadow: var(--color-shadow-dark);
         }
         
+        .main-tab-button:not(:last-child) {
+            margin-right: 0.85rem; /* More space between buttons */
+        }
+
         .main-tab-button:hover {
-            background-color: #F5F5F5; /* Very light grey hover */
-            color: var(--color-primary-text); /* Dark text on light hover */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            transform: translateY(-1px);
+            background-color: #333333; /* Darker hover */
+            color: var(--color-text-light);
+            box-shadow: var(--color-shadow-hover);
+            transform: translateY(-3px); /* Noticeable lift */
         }
 
         .main-tab-button-active {
-            background-color: var(--color-accent-secondary) !important; /* Green for active */
-            color: var(--color-card-bg) !important; /* White text on active tab */
-            font-weight: 600;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            border-color: var(--color-accent-secondary) !important; /* Match active background */
+            background: linear-gradient(135deg, var(--color-accent-primary-highlight) 0%, var(--color-accent-blue) 100%) !important; /* Gradient for active tab - now with green! */
+            color: var(--color-text-light) !important; /* Light text on active tab */
+            font-weight: 700;
+            box-shadow: 0 10px 20px -5px rgba(82, 196, 26, 0.4), 0 5px 10px -3px rgba(24, 144, 255, 0.4); /* Stronger shadow with accent colors */
+            border-color: transparent !important; /* No border for gradient */
+            transform: translateY(-3px); /* Ensure lift on active as well */
         }
 
         /* --- Tab Content Visibility --- */
@@ -134,120 +131,160 @@
             display: block;
         }
 
-        /* --- Weekly Navigation Button Active State (Existing) --- */
+        /* --- Weekly Navigation Button Active State --- */
+        .nav-button {
+            background-color: var(--color-bg-primary); /* Use primary background for inactive */
+            color: var(--color-text-medium);
+            border: 1px solid var(--color-border-dark);
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 8px -2px rgba(0,0,0,0.3);
+        }
+
+        .nav-button:hover {
+            background-color: #2F2F2F; /* Slightly lighter dark on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px -3px rgba(0,0,0,0.5);
+            color: var(--color-text-light);
+        }
+
         .nav-button-active {
-            background-color: var(--color-nav-active-bg) !important;
-            color: var(--color-nav-active-text) !important;
-            font-weight: 600;
-            transform: translateY(-2px); /* Subtle lift for active button */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08); /* Lighter shadow on light background */
+            background: linear-gradient(45deg, var(--color-accent-blue) 0%, var(--color-accent-primary-highlight) 100%) !important; /* Gradient for active week - blue to green */
+            color: var(--color-text-light) !important;
+            font-weight: 700;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px -4px rgba(24, 144, 255, 0.4), 0 4px 8px -2px rgba(82, 196, 26, 0.4); /* Stronger shadow with accent colors */
+            border-color: transparent !important;
         }
-        .nav-button-active:hover { /* Override hover for active state */
-            background-color: var(--color-nav-active-bg) !important;
-            color: var(--color-nav-active-text) !important;
+        .nav-button-active:hover {
+            background: linear-gradient(45deg, var(--color-accent-blue) 0%, var(--color-accent-primary-highlight) 100%) !important;
+            color: var(--color-text-light) !important;
         }
+
 
         /* --- Daily Card Styling --- */
         .day-card {
-            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth cubic-bezier transition */
-            border-left: 4px solid var(--color-accent-main); /* Initial border color (blue) */
-            position: relative; /* For confetti */
+            background-color: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-dark);
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-left: 6px solid var(--color-accent-blue); /* Initial border color */
+            position: relative;
+            box-shadow: var(--color-shadow-dark);
         }
 
         .day-card:hover {
-            transform: translateY(-4px); /* Lift card slightly more on hover */
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.1), 0 5px 8px -3px rgba(0, 0, 0, 0.05); /* More pronounced, lighter shadow */
+            transform: translateY(-8px); /* More noticeable lift */
+            box-shadow: 0 20px 40px -10px var(--color-shadow-hover);
         }
 
         /* Completed Card Styling */
         .completed-card {
-            background-color: var(--color-completed-card-bg);
-            border-left: 4px solid var(--color-completed-border);
-            opacity: 0.9; /* Slightly faded to indicate completion */
+            background-color: #282828; /* Slightly different dark shade for completed */
+            border-left: 6px solid var(--color-accent-green); /* Green border for completed tasks */
+            opacity: 0.9; /* Slightly faded */
         }
 
         .completed-card h3,
-        .completed-card .text-primary-text { /* Target specific text within completed card */
+        .completed-card .text-light,
+        .completed-card .text-medium,
+        .completed-card .text-accent-blue { /* Apply to all relevant text classes */
             text-decoration: line-through;
-            color: var(--color-secondary-text); /* Muted color for completed text */
+            color: var(--color-text-dark) !important; /* Muted color for completed text */
         }
-        .completed-card .text-accent-green { /* Target sub-topic text within completed card */
-            color: var(--color-secondary-text); /* Muted color for completed sub-topic */
-        }
-
         .completed-card a {
-            color: var(--color-secondary-text) !important; /* Mute links in completed cards */
-            opacity: 0.8;
+            color: var(--color-text-dark) !important; /* Mute links in completed cards */
+            opacity: 0.7;
+            pointer-events: none; /* Disable clicks on completed links */
         }
-
+        
         .day-card input[type="checkbox"] {
             cursor: pointer;
-            transform: scale(1.2); /* Slightly larger checkbox */
+            transform: scale(1.4); /* Even larger checkbox */
+            min-width: 28px; /* Ensure a minimum size for tap target */
+            min-height: 28px;
+            accent-color: var(--color-accent-blue); /* Default accent color */
+            border: 2px solid var(--color-text-medium); /* Visible border for unchecked */
+            background-color: transparent; /* Transparent background */
+            border-radius: 0.375rem; /* Slightly less rounded than default */
+            transition: accent-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
         }
+
         .day-card input[type="checkbox"]:checked {
-            accent-color: var(--color-accent-main); /* Color the checked box with main accent */
+            accent-color: var(--color-accent-green); /* Green when checked */
+            border-color: var(--color-accent-green); /* Green border when checked */
+        }
+        .day-card input[type="checkbox"]:focus {
+            outline: none; /* Remove default outline */
+            box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.5); /* Custom focus ring */
         }
 
         /* Motivation Quote Box */
         #motivation-quote {
-            background-color: var(--color-motivation-bg);
-            border: 1px solid var(--color-motivation-border);
-            color: var(--color-secondary-text);
+            background-color: #282828; /* Darker background for quote */
+            border: 1px solid var(--color-border-dark);
+            color: var(--color-text-medium);
+            transition: all 0.5s ease-in-out;
+            text-shadow: 0 0 5px rgba(0,0,0,0.3); /* Subtle text shadow for depth */
+        }
+        #motivation-quote .relative.z-10 {
+            background: linear-gradient(45deg, var(--color-accent-blue), var(--color-accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 600; /* Make quote text stand out more */
+            font-style: normal;
         }
 
         /* --- Progress Bar Fill Transition --- */
         .progress-bar-fill {
-            transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smoother animation */
+            transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         /* --- Community Buttons --- */
         .community-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            border-radius: 0.5rem;
-            font-weight: 600;
-            color: var(--color-card-bg); /* White text on vibrant button */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            padding: 1.2rem 2.2rem; /* Even larger padding */
+            border-radius: 0.85rem; /* More rounded */
+            font-weight: 700;
+            color: var(--color-text-light); /* Light text on vibrant button */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+            transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
         .community-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px); /* More lift */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
         }
 
         .whatsapp-button {
-            background-color: var(--color-whatsapp-bg);
-            border: 2px solid var(--color-whatsapp-bg);
+            background: linear-gradient(45deg, #25D366, #1DA851); /* Gradient for WhatsApp */
         }
         .whatsapp-button:hover {
-            background-color: var(--color-whatsapp-hover);
+            background: linear-gradient(45deg, #1DA851, #16803F); /* Darker gradient on hover */
         }
 
         .telegram-button {
-            background-color: var(--color-telegram-bg);
-            border: 2px solid var(--color-telegram-bg);
+            background: linear-gradient(45deg, #0088CC, #005F99); /* Gradient for Telegram */
         }
         .telegram-button:hover {
-            background-color: var(--color-telegram-hover);
+            background: linear-gradient(45deg, #005F99, #003A66); /* Darker gradient on hover */
         }
-
+        
         /* --- Confetti Animation --- */
         #confetti-container {
-            overflow: hidden; /* Ensure confetti stays within bounds */
+            overflow: hidden;
         }
 
         .confetti {
             position: absolute;
             width: 10px;
             height: 10px;
-            background-color: currentColor; /* Inherits color from parent for variety */
-            border-radius: 50%; /* Make them dots */
+            background-color: currentColor;
+            border-radius: 50%;
             opacity: 0;
             transform: scale(0);
-            animation: confetti-fall 2s forwards ease-out;
-            pointer-events: none; /* Allows clicks to pass through */
+            animation: confetti-fall 1.8s forwards ease-out;
+            pointer-events: none;
+            box-shadow: 0 0 5px currentColor; /* Small glow effect */
         }
 
         @keyframes confetti-fall {
@@ -260,127 +297,205 @@
             }
             100% {
                 opacity: 0;
-                transform: translate(var(--dx), var(--dy)) scale(0.5) rotate(var(--rot));
+                transform: translate(var(--dx), var(--dy)) scale(0.6) rotate(var(--rot));
             }
         }
+
         /* Styling for individual resource category boxes within the resources tab */
         .resource-box {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Softer initial shadow */
-            border: 1px solid #E0E0E0; /* Lighter border */
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, border-color 0.3s ease-in-out;
+            background-color: var(--color-bg-secondary);
+            box-shadow: var(--color-shadow-dark);
+            border: 1px solid var(--color-border-dark);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease-in-out;
         }
 
         .resource-box:hover {
-            transform: translateY(-5px); /* Lift more on hover */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* More pronounced shadow on hover */
-            border-color: var(--color-accent-main); /* Highlight border with accent blue */
+            transform: translateY(-7px); /* More lift on hover */
+            box-shadow: 0 18px 35px -12px var(--color-shadow-hover);
+            border-color: var(--color-accent-blue); /* Highlight border with accent blue */
         }
 
         .resource-box h3 {
-            color: var(--color-primary-text); /* Ensure headings are dark for readability */
-            transition: color 0.3s ease-in-out; /* Smooth transition for heading color */
+            color: var(--color-text-light);
+            transition: color 0.3s ease-in-out;
         }
 
         .resource-box:hover h3 {
-            color: var(--color-accent-secondary); /* Change heading to green on hover */
+            color: var(--color-accent-primary-highlight); /* Change heading to green on hover */
         }
 
         .resource-box a {
-            color: var(--color-accent-main); /* Make links blue by default */
-            font-weight: 500;
-            transition: color 0.3s ease-in-out; /* Smooth transition for link color */
+            color: var(--color-accent-blue);
+            font-weight: 600;
+            transition: color 0.3s ease-in-out;
         }
 
         .resource-box a:hover {
-            color: var(--color-accent-secondary); /* Green on hover */
+            color: var(--color-accent-primary-highlight); /* Green on hover */
         }
+
+        /* --- SVG Icon Styling (common) --- */
+        .icon-lg {
+            width: 30px; /* Slightly larger icons */
+            height: 30px;
+            margin-right: 0.6rem;
+            vertical-align: middle;
+            fill: currentColor; /* Use current text color for icon */
+            filter: drop-shadow(0 0 2px rgba(255,255,255,0.1)); /* Subtle glow for icons */
+        }
+        .icon-sm {
+            width: 18px;
+            height: 18px;
+            margin-right: 0.4rem;
+            vertical-align: middle;
+            fill: currentColor;
+        }
+
+
+        /* Custom scrollbar for better aesthetics on dark theme */
+        ::-webkit-scrollbar {
+            width: 10px; /* Wider scrollbar */
+        }
+        ::-webkit-scrollbar-track {
+            background: #282828; /* Darker track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #555555; /* Medium gray thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777777; /* Lighter on hover */
+        }
+
     </style>
 </head>
-<body class="bg-body-bg text-primary-text font-poppins">
+<body class="bg-primary text-light font-inter leading-relaxed antialiased">
 
-    <div class="container mx-auto p-4 md:p-8">
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-accent-green leading-tight">Path to Data Analytics in just 60 days<br> with Tanya! </h1>
-            <p class="text-lg text-secondary-text mt-3">Hey there, future Data Analysts or Scientists! Ready to dive into this awesome 60-day hustle and truly own your analytics skills? Let's make some magic happen!<br>Be with me, we'll learn together along the way</p>
+    <div class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <header class="text-center mb-16">
+            <h1 class="text-4xl md:text-7xl font-extrabold text-accent-primary-highlight leading-tight mb-4">
+                Path to Data Analytics
+                <span class="block text-accent-blue text-3xl md:text-6xl mt-2">in just 60 days with Tanya!</span>
+            </h1>
+            <p class="text-lg text-medium max-w-4xl mx-auto">
+                Hey there, future Data Analysts or Scientists! Ready to dive into this awesome 60-day hustle and truly own your analytics skills? Let's make some magic happen!
+                <br>Be with me, we'll learn together along the way.
+            </p>
         </header>
 
         <main>
             <!-- Main Tab Navigation -->
-            <nav id="main-tabs" class="flex flex-wrap justify-center mb-8 bg-card-bg p-2 rounded-lg shadow-lg">
-                <button data-tab="dashboard" class="main-tab-button px-6 py-3 rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green">Your Dashboard</button>
-                <button data-tab="weekly-tasks" class="main-tab-button px-6 py-3 rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green">Weekly Missions</button>
-                <button data-tab="projects" class="main-tab-button px-6 py-3 rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green">Project Ideas</button>
-                <button data-tab="resources" class="main-tab-button px-6 py-3 rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green">Learning Resources</button>
+            <nav id="main-tabs" class="flex flex-wrap justify-center mb-12 bg-secondary p-4 rounded-xl shadow-advillains">
+                <button data-tab="dashboard" class="main-tab-button">
+                    <svg class="icon-lg inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                    </svg>
+                    Your Dashboard
+                </button>
+                <button data-tab="weekly-tasks" class="main-tab-button">
+                    <svg class="icon-lg inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                    </svg>
+                    Weekly Missions
+                </button>
+                <button data-tab="projects" class="main-tab-button">
+                    <svg class="icon-lg inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 8H5c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2zm0 6H5v-4h14v4zM22 6h-6V4h-2v2h-4V4H8v2H2v14h20V6z"/>
+                    </svg>
+                    Project Ideas
+                </button>
+                <button data-tab="resources" class="main-tab-button">
+                    <svg class="icon-lg inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 17H7v-1h10v1zm0-3H7v-1h10v1zm0-3H7v-1h10v1zm0-3H7V7h10v1z"/>
+                    </svg>
+                    Learning Resources
+                </button>
             </nav>
 
             <!-- Dashboard Tab Content -->
             <div id="dashboard-content" class="tab-content">
                 <!-- Dashboard Section -->
-                <section id="dashboard-main" class="mb-8 p-6 bg-card-bg rounded-xl shadow-lg">
-                    <h2 class="text-2xl font-bold mb-4 text-primary-text">Your Progress Bar</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                <section id="dashboard-main" class="mb-12 p-8 bg-secondary rounded-xl shadow-advillains border border-border-dark">
+                    <h2 class="text-4xl font-bold mb-8 text-light">Your Progress Dashboard</h2>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                         <!-- Progress Summary -->
                         <div class="flex flex-col justify-center">
-                            <div class="mb-4">
-                                <div class="flex justify-between items-center mb-1">
-                                    <span class="text-lg font-medium text-accent-green">Overall Learning Streak</span>
-                                    <span id="progress-text" class="text-lg font-semibold text-accent-green">0 / 60 Unlocked</span>
+                            <div class="mb-6">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xl font-semibold text-accent-primary-highlight">Overall Learning Streak</span>
+                                    <span id="progress-text" class="text-2xl font-extrabold text-accent-primary-highlight">0 / 60 Unlocked</span>
                                 </div>
-                                <div class="w-full bg-gray-700 rounded-full h-4">
-                                    <div id="progress-bar" class="bg-accent-green h-4 rounded-full progress-bar-fill" style="width: 0%"></div>
+                                <div class="w-full h-5 rounded-full progress-track overflow-hidden">
+                                    <div id="progress-bar" class="h-full rounded-full bg-accent-primary-highlight progress-bar-fill" style="width: 0%"></div>
                                 </div>
                             </div>
-                            <div id="motivation-quote" class="mt-4 p-3 bg-gray-700/70 rounded-lg border border-gray-600 text-secondary-text text-sm italic font-medium">
-                                    "The only way to do great work is to love what you do. Keep pushing, fam!"
-                                </div>
-                            <br>
-                            <div>
-                                <p class="text-sm text-secondary-text leading-relaxed">This roadmap, curated by me, can be your secret sauce to mastering data analytics with Python. Ditch the boring textbooks and struggling in the ocean of youtube videos, we're making learning interactive and actually fun. Every checkbox is a win, every day a step closer to flexing your skills!
-                                <br> 
-                                Now, this roadmap might not be perfect yet(because, hello, continuous learning!), but it’s my plan, and I'm totally chill with learning and adjusting as I go.</p>
-                                <br>
+                            <div id="motivation-quote" class="p-5 bg-primary rounded-lg border border-border-dark text-medium text-lg italic font-medium relative overflow-hidden">
+                                <span class="relative z-10">"The only way to do great work is to love what you do. Keep pushing, fam!"</span>
+                                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-transparent to-accent-blue/10 rounded-lg opacity-30 z-0"></div>
                             </div>
+                            <p class="text-base text-medium mt-8 leading-relaxed">
+                                This roadmap, curated by me, can be your secret sauce to mastering data analytics with Python. Ditch the boring textbooks and struggling in the ocean of YouTube videos, we're making learning interactive and actually fun. Every checkbox is a win, every day a step closer to flexing your skills!
+                                <br><br>
+                                Now, this roadmap might not be perfect yet (because, hello, continuous learning!), but it’s my plan, and I'm totally chill with learning and adjusting as I go.
+                            </p>
                         </div>
                         <!-- Chart -->
-                        <div class="chart-container">
+                        <div class="chart-container shadow-advillains border border-border-dark">
                             <canvas id="weeklyHoursChart"></canvas>
                         </div>
                     </div>
                 </section>
 
                 <!-- Why This Roadmap ROCKS -->
-                <section id="why-rocks" class="mb-8 p-6 bg-card-bg rounded-xl shadow-lg">
-                    <h2 class="text-2xl font-bold mb-4 text-primary-text text-center">Why This Roadmap Absolutely SLAPS!</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                        <div class="p-4 bg-card-bg rounded-lg border border-gray-200 flex flex-col items-center">
-                            <span class="text-4xl mb-2">💡</span>
-                            <h3 class="font-semibold text-lg text-accent-green">Super Clear Path</h3>
-                            <p class="text-sm text-secondary-text">No more guessing! We've laid out every single step for 60 days. Just follow along.</p>
+                <section id="why-rocks" class="mb-12 p-8 bg-secondary rounded-xl shadow-advillains border border-border-dark">
+                    <h2 class="text-4xl font-bold mb-10 text-light text-center">Why This Roadmap Absolutely SLAPS!</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div class="p-6 bg-primary rounded-lg border border-border-dark flex flex-col items-center shadow-advillains hover:shadow-advillains-hover transition-all duration-300 transform hover:scale-[1.03]">
+                            <svg class="icon-lg text-accent-purple mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                            </svg>
+                            <h3 class="font-bold text-xl text-light mb-3">Super Clear Path</h3>
+                            <p class="text-base text-medium">No more guessing! We've laid out every single step for 60 days. Just follow along.</p>
                         </div>
-                        <div class="p-4 bg-card-bg rounded-lg border border-gray-200 flex flex-col items-center">
-                            <span class="text-4xl mb-2">🎮</span>
-                            <h3 class="font-semibold text-lg text-accent-green">Interactive AF</h3>
-                            <p class="text-sm text-secondary-text">Click, track, and watch your progress update in real-time. It's like a game, but for your brain!</p>
+                        <div class="p-6 bg-primary rounded-lg border border-border-dark flex flex-col items-center shadow-advillains hover:shadow-advillains-hover transition-all duration-300 transform hover:scale-[1.03]">
+                            <svg class="icon-lg text-accent-blue mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-6h2v6zm4 0h-2v-3h2v3zm2-6h-2V7h2v4z"/>
+                            </svg>
+                            <h3 class="font-bold text-xl text-light mb-3">Interactive AF</h3>
+                            <p class="text-base text-medium">Click, track, and watch your progress update in real-time. It's like a game, but for your brain!</p>
                         </div>
-                        <div class="p-4 bg-card-bg rounded-lg border border-gray-200 flex flex-col items-center">
-                            <span class="text-4xl mb-2">🤝</span>
-                            <h3 class="font-semibold text-lg text-accent-green">Whatsapp Community</h3>
-                            <p class="text-sm text-secondary-text">Stuck? Need a hype squad? Join our fam on WhatsApp! You're not alone.</p>
+                        <div class="p-6 bg-primary rounded-lg border border-border-dark flex flex-col items-center shadow-advillains hover:shadow-advillains-hover transition-all duration-300 transform hover:scale-[1.03]">
+                            <svg class="icon-lg text-accent-green mb-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+                            </svg>
+                            <h3 class="font-bold text-xl text-light mb-3">Engaged Community</h3>
+                            <p class="text-base text-medium">Stuck? Need a hype squad? Join our fam on WhatsApp! You're not alone.</p>
                         </div>
                     </div>
                 </section>
 
                 <!-- Community Section -->
-                <section id="community" class="mb-8 p-6 bg-card-bg rounded-xl shadow-lg text-center">
-                    <h2 class="text-2xl font-bold mb-4 text-primary-text">Squad Up! Join the Fam!</h2>
-                    <p class="text-secondary-text mb-6">Learning is way more fun when you've got rigth peers! Join our whatsapp community, share your wins, get unstuck, and meet other cool people on the same data journey. We'll share resources, tackle challenges, and keep the good vibes flowing.</p>
-                    <div class="flex flex-wrap justify-center gap-4">
+                <section id="community" class="mb-12 p-8 bg-secondary rounded-xl shadow-advillains border border-border-dark text-center">
+                    <h2 class="text-4xl font-bold mb-8 text-light">Squad Up! Join the Fam!</h2>
+                    <p class="text-base text-medium mb-10 max-w-2xl mx-auto">
+                        Learning is way more fun when you've got the right peers! Join our WhatsApp community, share your wins, get unstuck, and meet other cool people on the same data journey. We'll share resources, tackle challenges, and keep the good vibes flowing.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-8">
                         <a href="https://chat.whatsapp.com/JzUQIybtxWV3FYKit3l3TT" target="_blank" rel="noopener noreferrer" class="community-button whatsapp-button">
-                            <span class="text-2xl mr-2">💚</span> Join WhatsApp Fam
+                            <svg class="icon-lg text-light" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.5 3.44 1.45 4.93L2.05 22l5.25-1.38c1.47.8 3.12 1.22 4.74 1.22 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm3.62 14.73c-.25.64-.9.84-1.55.51-.55-.26-1.74-.71-2.01-.8-.26-.09-.45-.09-.64.09-.19.18-.73.89-.92 1.07-.19.18-.38.2-.7.09-.31-.09-1.31-.48-2.5-1.54-1.8-1.54-2.39-3.26-2.68-3.76-.28-.5-.03-.77.16-.95.17-.17.38-.26.5-.45.12-.19.16-.36.25-.56.09-.2.05-.38-.03-.53-.09-.19-.64-1.54-.88-2.19-.24-.65-.48-.56-.65-.56-.18 0-.38-.03-.56-.03-.2 0-.53.09-.81.38-.28.28-1.07 1.05-1.07 2.54 0 1.49 1.1 2.94 1.26 3.14.16.2.29.45.5.7.2.26.42.54.83.83 1.1 1.07 2.05 1.58 2.5 1.77.45.19.71.18.97-.09.26-.26 1.04-1.07 1.2-1.26.16-.19.31-.26.57-.18.26.09 1.62.8 1.87.97.26.18.42.28.5.42.08.14.05.26-.05.45z"/>
+                            </svg>
+                            Join WhatsApp Fam
                         </a>
-                        <!-- <a href="https://t.me/dummy-telegram-link" target="_blank" rel="noopener noreferrer" class="community-button telegram-button">
-                            <span class="text-2xl mr-2">💙</span> Slide into Telegram
-                        </a> -->
+                        <!-- Uncomment if needed:
+                        <a href="https://t.me/dummy-telegram-link" target="_blank" rel="noopener noreferrer" class="community-button telegram-button">
+                            <svg class="icon-lg text-light" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.72 6.81l-2.73 9.45c-.18.62-.64.77-1.15.48l-3.08-2.28-1.48 1.45c-.18.18-.3.26-.5.26-.2 0-.4-.08-.57-.22L5 14.5c-.3-.22-.38-.5-.17-.7l10.8-7.55c.42-.3.8-.18.42.27z"/>
+                            </svg>
+                            Slide into Telegram
+                        </a>
+                        -->
                     </div>
                 </section>
             </div>
@@ -388,17 +503,17 @@
             <!-- Weekly Tasks Tab Content -->
             <div id="weekly-tasks-content" class="tab-content hidden">
                 <!-- Weekly Navigation -->
-                <section id="navigation" class="mb-6 p-6 bg-card-bg rounded-xl shadow-lg">
-                    <h2 class="text-2xl font-bold mb-4 text-primary-text">Your Weekly Missions</h2>
-                    <p class="text-secondary-text mb-4">Tap a week to know your next set of challenges. Each mission builds on the last, teaching you data analytics level by level. Don't sweat it, you got this!</p>
-                    <div id="week-tabs" class="flex flex-wrap gap-2 justify-center">
+                <section id="navigation" class="mb-10 p-8 bg-secondary rounded-xl shadow-advillains border border-border-dark">
+                    <h2 class="text-4xl font-bold mb-8 text-light">Your Weekly Missions</h2>
+                    <p class="text-base text-medium mb-8">Tap a week to know your next set of challenges. Each mission builds on the last, teaching you data analytics level by level. Don't sweat it, you got this!</p>
+                    <div id="week-tabs" class="flex flex-wrap gap-4 justify-center">
                         <!-- Week buttons will be dynamically inserted here by JavaScript -->
                     </div>
                 </section>
-                
+
                 <!-- Daily Plan Content -->
                 <section id="daily-plan">
-                    <div id="daily-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div id="daily-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Daily cards will be dynamically inserted here by JavaScript -->
                     </div>
                 </section>
@@ -408,10 +523,12 @@
             <!-- Projects Tab Content -->
             <div id="projects-content" class="tab-content hidden">
                 <!-- Project Recommendations Section -->
-                <section id="project-recommendations" class="mb-8 p-6 bg-card-bg rounded-xl shadow-lg">
-                    <h2 class="text-2xl font-bold mb-4 text-primary-text text-center">Project Ideas</h2>
-                    <p class="text-secondary-text mb-6 text-center">Here are some project ideas to test your skills and build your portfolio. Start simple, then level up!</p>
-                    <div id="project-list" class="space-y-6">
+                <section id="project-recommendations" class="mb-12 p-8 bg-secondary rounded-xl shadow-advillains border border-border-dark">
+                    <h2 class="text-4xl font-bold mb-8 text-light text-center">Unlock Your Portfolio: Project Ideas</h2>
+                    <p class="text-base text-medium mb-10 text-center max-w-2xl mx-auto">
+                        Here are some project ideas to test your skills and build an impressive portfolio. Start simple, then level up to showcase your growth!
+                    </p>
+                    <div id="project-list" class="space-y-8">
                         <!-- Project recommendations will be dynamically inserted here by JavaScript -->
                     </div>
                 </section>
@@ -420,19 +537,24 @@
             <!-- Resources Tab Content -->
             <div id="resources-content" class="tab-content hidden">
                 <!-- All Learning Resources Section -->
-                <section id="all-resources" class="mb-8 p-6 bg-card-bg rounded-xl shadow-lg">
-                    <h2 class="text-2xl font-bold mb-4 text-primary-text text-center">Resources</h2>
-                    <p class="text-secondary-text mb-6 text-center">Beyond the daily links, here are some great resources to keep you going. Siddhardhan and KrishNaik Sir are the OGs!</p>
-                    <!-- New wrapper for the 2x2 grid -->
-                    <div id="resource-list" class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <section id="all-resources" class="mb-12 p-8 bg-secondary rounded-xl shadow-advillains border border-border-dark">
+                    <h2 class="text-4xl font-bold mb-8 text-light text-center">Your Go-To Learning Arsenal</h2>
+                    <p class="text-base text-medium mb-10 text-center max-w-2xl mx-auto">
+                        Beyond the daily links, here are some phenomenal resources to deepen your understanding and keep you going. Special shout-out to Siddhardhan and KrishNaik Sir – absolute legends!
+                    </p>
+                    <div id="resource-list" class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                         <!-- All learning resources will be dynamically inserted here by JavaScript -->
                     </div>
                 </section>
             </div>
         </main>
+
+        <footer class="mt-20 text-center text-dark text-sm">
+            <p>&copy; 2025 Tanya's Data Analytics Roadmap. All rights reserved. Let's grow together!</p>
+        </footer>
     </div>
 
-    <!-- Confetti Container -->
+    <!-- Confetti Container (hidden by default, filled by JS) -->
     <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
 
     <!-- Custom JavaScript (Embedded for self-containment) -->
@@ -492,7 +614,7 @@
             { day: 40, week: 6, topic: 'Deep Learning', sub: 'Intro to Neural Networks', concepts: ['Perceptron', 'Activation functions (ReLU, Sigmoid)', 'Forward propagation'], time: 4, resource: 'https://www.youtube.com/watch?v=aircAruvnKk', project: 'Build a simple neural network from scratch using NumPy.' },
             { day: 41, week: 6, topic: 'Deep Learning', sub: 'Intro to Keras/TensorFlow', concepts: ['Sequential API', 'Dense layers', 'Compiling a model'], time: 4, resource: 'https://www.youtube.com/watch?v=Klv9C_2v1jI', project: 'Build a simple classifier using Keras.' },
             { day: 42, week: 6, topic: 'Week 6 Review', sub: 'Consolidate Skills', concepts: ['Review all topics, Work on a challenging project'], time: 4, resource: '', project: 'Choose a project that combines multiple skills (e.g., text analysis and visualization).' },
-            
+
             // --- REVISED WEEK 7: Deep Learning - CNNs & Transfer Learning (7 days) ---
             { day: 43, week: 7, topic: 'Deep Learning', sub: 'Training & Evaluation Basics', concepts: ['Loss functions', 'Optimizers (Adam, SGD)', 'Epochs, Batch size'], time: 4, resource: 'https://www.youtube.com/watch?v=Kds2_3zF6eY&list=PLc2gB4S_m9D7g_L_m0F2u4Y04_2n5_0G_&index=6', project: 'Train and evaluate your Keras model.' },
             { day: 44, week: 7, topic: 'Deep Learning', sub: 'Convolutional Neural Networks (CNN) Architecture', concepts: ['Convolutional layers', 'Pooling layers', 'CNN architecture'], time: 4, resource: 'https://www.youtube.com/watch?v=FTr3n7uBIuE', project: 'Design a simple CNN architecture.' },
@@ -510,7 +632,7 @@
             { day: 54, week: 8, topic: 'The Road Ahead', sub: 'Cloud & Big Data Intro', concepts: ['Intro to AWS/GCP/Azure for ML', 'What is Spark?'], time: 3, resource: 'https://www.youtube.com/watch?v=H6y_i_f2trw', project: 'Research cloud platforms for ML.' },
             { day: 55, week: 8, topic: 'The Road Ahead', sub: 'Advanced Topics & MLOps', concepts: ['Explainable AI (XAI)', 'Reinforcement Learning', 'Intro to MLOps'], time: 3, resource: 'https://www.youtube.com/watch?v=JgvyzIkg_zE', project: 'Read articles on advanced ML topics & MLOps.' },
             { day: 56, week: 8, topic: 'Week 8 Review', sub: 'GitHub & Resume Prep', concepts: ['Organizing projects on GitHub', 'Writing project READMEs', 'Updating your resume'], time: 4, resource: 'https://www.youtube.com/watch?v=RGOj5yH7evk', project: 'Create a professional GitHub profile and update resume.' },
-            
+
             // --- REVISED WEEK 9: Final Review & Next Steps (4 days Remaining from 60) ---
             { day: 57, week: 9, topic: 'Final Prep', sub: 'Interview Questions', concepts: ['Common data analyst questions', 'SQL/Python coding challenges'], time: 4, resource: 'https://www.stratascratch.com/blog/data-analyst-interview-questions/', project: 'Practice interview questions and coding challenges.' },
             { day: 58, week: 9, topic: 'Final Prep', sub: 'Case Studies & Soft Skills', concepts: ['Solving data analysis case studies', 'Communication & Presentation skills'], time: 4, resource: 'https://www.mckinsey.com/capabilities/quantumblack/our-insights', project: 'Work through a data analytics case study.' },
@@ -529,8 +651,8 @@
             "The future belongs to those who learn. You're building that future, one day at a time.",
             "Think of this as your personal data analytics bootcamp. You're crushing it!",
             "Small steps every day lead to big results. Consistency is key!",
-            "You're literally turning raw data into insights. That's a superpower! ",
-            "Embrace the challenge, cherish the progress. You're doing amazing! "
+            "You're literally turning raw data into insights. That's a superpower!",
+            "Embrace the challenge, cherish the progress. You're doing amazing!"
         ];
 
         // Project Recommendations (Level-wise)
@@ -597,7 +719,7 @@
                 resources: [
                     { name: 'Kaggle Datasets', link: 'https://www.kaggle.com/datasets' },
                     { name: 'UCI Machine Learning Repository', link: 'https://archive.ics.uci.edu/ml/index.php' },
-                    { name: 'Google Dataset Search', link: 'https://datasetsearch.research.google.google.com/' }
+                    { name: 'Google Dataset Search', link: 'https://datasetsearch.research.google.com/' }
                 ]
             }
         ];
@@ -616,8 +738,8 @@
         const progressText = document.getElementById('progress-text');
         const motivationQuoteElement = document.getElementById('motivation-quote');
         const confettiContainer = document.getElementById('confetti-container');
-        const projectListContainer = document.getElementById('project-list'); 
-        const resourceListContainer = document.getElementById('resource-list'); 
+        const projectListContainer = document.getElementById('project-list');
+        const resourceListContainer = document.getElementById('resource-list');
         let weeklyHoursChart = null; // To store the Chart.js instance
 
         // --- Local Storage Functions ---
@@ -663,7 +785,7 @@
         function createChart() {
             const weeklyData = calculateWeeklyHours();
             const ctx = document.getElementById('weeklyHoursChart').getContext('2d');
-            
+
             // Destroy previous chart instance if it exists to prevent overlap
             if (weeklyHoursChart) {
                 weeklyHoursChart.destroy();
@@ -676,12 +798,11 @@
                     datasets: [{
                         label: 'Estimated Hours',
                         data: weeklyData.map(d => d.totalHours),
-                        // Use CSS variables for chart colors for consistent theming
-                        backgroundColor: 'var(--color-accent-chart-bar)', /* Using vibrant blue for the bars */
-                        borderColor: 'var(--color-accent-chart-bar)', 
+                        backgroundColor: 'var(--color-accent-green)', /* Now green! */
+                        borderColor: 'var(--color-accent-green)',
                         borderWidth: 1,
-                        borderRadius: 6, // Slightly more rounded bars
-                        hoverBackgroundColor: 'var(--color-accent-secondary)' // Green for hover
+                        borderRadius: 10, /* More rounded bars */
+                        hoverBackgroundColor: 'var(--color-accent-blue)' /* Blue for hover */
                     }]
                 },
                 options: {
@@ -691,9 +812,9 @@
                         title: {
                             display: true,
                             text: 'Estimated Learning Hours per Week',
-                            font: { size: 16, weight: '600', family: 'Poppins' }, // Match body font
-                            color: 'var(--color-primary-text)', // Use primary text color (dark charcoal blue)
-                            padding: { bottom: 20 }
+                            font: { size: 20, weight: '700', family: 'Inter' }, /* Match body font, larger */
+                            color: 'var(--color-text-light)', /* Use light text color */
+                            padding: { bottom: 25 }
                         },
                         legend: {
                             display: false // Hide legend as there's only one dataset
@@ -703,7 +824,16 @@
                                 label: function(context) {
                                     return `${context.dataset.label}: ${context.raw} hours`;
                                 }
-                            }
+                            },
+                            backgroundColor: 'var(--color-bg-secondary)',
+                            titleColor: 'var(--color-text-light)',
+                            bodyColor: 'var(--color-text-medium)',
+                            titleFont: { family: 'Inter', size: 15, weight: '600' },
+                            bodyFont: { family: 'Inter', size: 14 },
+                            padding: 12,
+                            cornerRadius: 8,
+                            borderColor: 'var(--color-border-dark)',
+                            borderWidth: 1,
                         }
                     },
                     scales: {
@@ -712,26 +842,31 @@
                             title: {
                                 display: true,
                                 text: 'Hours',
-                                color: 'var(--color-secondary-text)' // Use secondary text color
+                                color: 'var(--color-text-medium)',
+                                font: { family: 'Inter', size: 15 }
                             },
                             grid: {
-                                color: 'rgba(0, 0, 0, 0.08)' // Very subtle grid lines on light background
+                                color: 'rgba(255, 255, 255, 0.08)', /* Lighter subtle grid lines on dark background */
+                                drawBorder: false, /* Remove y-axis border */
                             },
                             ticks: {
-                                color: 'var(--color-secondary-text)' // Tick labels color
+                                color: 'var(--color-text-dark)', /* Tick labels color */
+                                font: { family: 'Inter', size: 13 }
                             }
                         },
                         x: {
                             title: {
                                 display: true,
                                 text: 'Week',
-                                color: 'var(--color-secondary-text)' // Use secondary text color
+                                color: 'var(--color-text-medium)',
+                                font: { family: 'Inter', size: 15 }
                             },
                             grid: {
-                                display: false // No vertical grid lines
+                                display: false /* No vertical grid lines */
                             },
                             ticks: {
-                                color: 'var(--color-secondary-text)' // Tick labels color
+                                color: 'var(--color-text-dark)', /* Tick labels color */
+                                font: { family: 'Inter', size: 13 }
                             }
                         }
                     }
@@ -749,8 +884,8 @@
                 const tabName = button.dataset.tab;
                 // Reset button styles
                 button.classList.remove('main-tab-button-active');
-                button.classList.add('bg-card-bg', 'text-primary-text');
-                
+                button.classList.add('bg-secondary', 'text-medium', 'border-dark', 'shadow-advillains');
+
                 // Set active style for the current tab
                 if (tabName === appState.currentMainTab) {
                     button.classList.add('main-tab-button-active');
@@ -774,7 +909,6 @@
             } else if (appState.currentMainTab === 'resources') {
                 renderAllResources();
             } else if (appState.currentMainTab === 'dashboard') {
-                // Dashboard content is mostly static, but ensure progress is updated
                 updateDashboard();
             }
         }
@@ -787,13 +921,13 @@
                 const button = document.createElement('button');
                 button.textContent = `Week ${week}`;
                 // Apply Tailwind classes for styling and hover effects, using CSS variables
-                button.className = `px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-green bg-card-bg text-primary-text border border-gray-300 hover:bg-gray-100 hover:shadow-md`;
-                
+                button.className = `nav-button px-6 py-3 text-base font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent-blue`;
+
                 // Add active class if it's the current week
                 if (week === appState.currentWeek) {
                     button.classList.add('nav-button-active');
                 }
-                
+
                 // Event listener to switch weeks when a button is clicked
                 button.addEventListener('click', () => {
                     appState.currentWeek = week;
@@ -813,34 +947,35 @@
                 const isCompleted = appState.completedDays.has(day.day);
                 const card = document.createElement('div');
                 // Apply Tailwind classes for card styling and completed state, using CSS variables
-                card.className = `day-card p-5 bg-card-bg rounded-xl shadow-sm ${isCompleted ? 'completed-card' : ''}`;
+                card.className = `day-card p-6 bg-secondary rounded-xl shadow-advillains ${isCompleted ? 'completed-card' : ''}`;
 
                 card.innerHTML = `
                     <div class="flex justify-between items-start">
                         <div>
-                            <p class="text-sm font-medium text-secondary-text">Day ${day.day}</p>
-                            <h3 class="text-xl font-bold mt-1 text-primary-text">${day.topic}</h3>
-                            <p class="text-md text-accent-green font-semibold">${day.sub}</p>
+                            <p class="text-sm font-medium text-text-medium">Day ${day.day}</p>
+                            <h3 class="text-2xl font-bold mt-1 text-light">${day.topic}</h3>
+                            <p class="text-md text-accent-blue font-semibold">${day.sub}</p>
                         </div>
                         <div class="flex items-center">
-                            <input type="checkbox" id="day-${day.day}" data-day="${day.day}" class="h-6 w-6 rounded-md text-accent-green focus:ring-accent-green border-gray-400 cursor-pointer" ${isCompleted ? 'checked' : ''}>
+                            <input type="checkbox" id="day-${day.day}" data-day="${day.day}" class="appearance-none h-6 w-6 rounded-md border-2 border-text-medium checked:border-accent-green focus:ring-2 focus:ring-accent-blue focus:ring-offset-2 transition-all duration-200" ${isCompleted ? 'checked' : ''}>
                         </div>
                     </div>
                     <div class="mt-4">
-                        <p class="font-semibold text-primary-text">Key Concepts:</p>
-                        <ul class="list-disc list-inside text-secondary-text text-sm mt-1 space-y-1 pl-4">
+                        <p class="font-semibold text-light">Key Concepts:</p>
+                        <ul class="list-disc list-inside text-text-medium text-sm mt-1 space-y-1 pl-4">
                             ${day.concepts.map(concept => `<li>${concept}</li>`).join('')}
                         </ul>
                     </div>
                     <div class="mt-4">
-                        <p class="font-semibold text-primary-text">Today's Project:</p>
-                        <p class="text-secondary-text text-sm mt-1">${day.project}</p>
+                        <p class="font-semibold text-light">Today's Project:</p>
+                        <p class="text-text-medium text-sm mt-1">${day.project}</p>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-gray-300 flex justify-between items-center">
-                        <span class="text-sm font-medium text-secondary-text">🕒 ${day.time} hours</span>
-                        ${day.resource ? `<a href="${day.resource}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent-green hover:text-accent-teal transition-colors">
-                            Learning Resource ↗
-                        </a>` : `<span class="text-sm font-medium text-secondary-text opacity-70">No Resource Yet!</span>`}
+                    <div class="mt-5 pt-4 border-t border-border-dark flex justify-between items-center">
+                        <span class="text-sm font-medium text-text-medium">🕒 ${day.time} hours</span>
+                        ${day.resource ? `<a href="${day.resource}" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-accent-blue hover:text-accent-primary-highlight transition-colors flex items-center">
+                            <svg class="icon-sm mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V3a1 1 0 00-1-1h-6z"></path><path d="M4 10a2 2 0 00-2 2v5a2 2 0 002 2h5a2 2 0 002-2v-2a1 1 0 00-1-1H7a1 1 0 01-1-1v-2a1 1 0 00-1-1H4z"></path></svg>
+                            Learning Resource
+                        </a>` : `<span class="text-sm font-medium text-text-dark opacity-70">No Resource Yet!</span>`}
                     </div>
                 `;
                 dailyCardsContainer.appendChild(card);
@@ -852,17 +987,18 @@
             projectListContainer.innerHTML = ''; // Clear previous content
             projectRecommendations.forEach(section => {
                 const sectionDiv = document.createElement('div');
-                sectionDiv.className = 'p-5 bg-white rounded-lg shadow-md border border-gray-200'; /* Light background with border */
+                sectionDiv.className = 'p-8 bg-primary rounded-xl shadow-advillains border border-border-dark'; /* Primary background for inner section */
                 sectionDiv.innerHTML = `
-                    <h3 class="text-xl font-bold text-accent-green mb-3">${section.level}</h3>
-                    <p class="text-secondary-text text-sm mb-4">${section.description}</p>
-                    <ul class="space-y-3">
+                    <h3 class="text-3xl font-bold text-accent-primary-highlight mb-5">${section.level}</h3>
+                    <p class="text-medium text-base mb-7">${section.description}</p>
+                    <ul class="space-y-5">
                         ${section.projects.map(p => `
-                            <li class="border-b border-gray-200 pb-3 last:border-b-0 last:pb-0">
-                                <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="text-primary-text hover:text-accent-green font-semibold text-md block transition-colors">
-                                    ${p.name} ↗
+                            <li class="border-b border-border-dark pb-5 last:border-b-0 last:pb-0">
+                                <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="text-light hover:text-accent-yellow font-semibold text-xl block transition-colors flex items-center">
+                                    <svg class="icon-sm mr-2 text-accent-blue" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                                    ${p.name}
                                 </a>
-                                <p class="text-secondary-text text-sm mt-1">${p.details}</p>
+                                <p class="text-text-medium text-sm mt-2 ml-7">${p.details}</p>
                             </li>
                         `).join('')}
                     </ul>
@@ -876,15 +1012,15 @@
             resourceListContainer.innerHTML = ''; // Clear previous content
             allLearningResources.forEach(category => {
                 const categoryDiv = document.createElement('div');
-                // Added new styling for the resource boxes
-                categoryDiv.className = 'resource-box p-6 bg-white rounded-xl shadow-md border border-gray-100 transition-all duration-300 ease-in-out transform hover:scale-102 hover:shadow-lg hover:border-accent-blue';
+                categoryDiv.className = 'resource-box p-8 bg-secondary rounded-xl shadow-advillains border border-border-dark';
                 categoryDiv.innerHTML = `
-                    <h3 class="text-xl font-bold text-primary-text mb-3">${category.category}</h3>
-                    <ul class="flex-grow space-y-3">
+                    <h3 class="text-2xl font-bold text-light mb-5">${category.category}</h3>
+                    <ul class="space-y-4">
                         ${category.resources.map(res => `
                             <li>
-                                <a href="${res.link}" target="_blank" rel="noopener noreferrer" class="text-accent-main hover:text-accent-secondary font-semibold text-md block transition-colors">
-                                    ${res.name} ↗
+                                <a href="${res.link}" target="_blank" rel="noopener noreferrer" class="text-accent-blue hover:text-accent-primary-highlight font-semibold text-base block transition-colors flex items-center">
+                                    <svg class="icon-sm mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V3a1 1 0 00-1-1h-6z"></path><path d="M4 10a2 2 0 00-2 2v5a2 2 0 002 2h5a2 2 0 002-2v-2a1 1 0 00-1-1H7a1 1 0 01-1-1v-2a1 1 0 00-1-1H4z"></path></svg>
+                                    ${res.name}
                                 </a>
                             </li>
                         `).join('')}
@@ -899,14 +1035,19 @@
             const completedCount = appState.completedDays.size;
             const totalDays = roadmapData.length;
             const progressPercentage = (completedCount / totalDays) * 100;
-            
+
             // Update progress bar width and text
             progressBar.style.width = `${progressPercentage}%`;
-            progressText.textContent = `${completedCount} / ${totalDays} Unlocked`; 
+            progressText.textContent = `${completedCount} / ${totalDays} Unlocked`;
 
             // Update motivational quote randomly
             const randomQuote = motivationalQuotes[Math.floor(Math.random() * motivationalQuotes.length)];
-            motivationQuoteElement.textContent = randomQuote;
+            // Apply text gradient to the quote span
+            motivationQuoteElement.querySelector('span').innerHTML = `
+                <span style="background: linear-gradient(45deg, var(--color-accent-blue), var(--color-accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; color: transparent; font-weight: 600;">
+                    "${randomQuote}"
+                </span>
+            `;
         }
 
         // --- Confetti Effect ---
@@ -916,10 +1057,10 @@
             confetti.className = 'confetti';
             confetti.style.left = `${x}px`;
             confetti.style.top = `${y}px`;
-            confetti.style.backgroundColor = color; 
-            confetti.style.setProperty('--dx', `${(Math.random() - 0.5) * 200}px`); 
-            confetti.style.setProperty('--dy', `${(Math.random() * 150) - 200}px`); 
-            confetti.style.setProperty('--rot', `${Math.random() * 360}deg`); 
+            confetti.style.backgroundColor = color;
+            confetti.style.setProperty('--dx', `${(Math.random() - 0.5) * 300}px`); /* Wider spread */
+            confetti.style.setProperty('--dy', `${(Math.random() * 250) - 300}px`); /* Higher launch */
+            confetti.style.setProperty('--rot', `${Math.random() * 1080}deg`); /* More rotation */
 
             confettiContainer.appendChild(confetti);
 
@@ -937,22 +1078,21 @@
                 const centerY = rect.top + rect.height / 2;
 
                 // Confetti colors matching the new theme accents
-                const colors = ['var(--color-accent-main)', 'var(--color-accent-secondary)', 'var(--color-accent-tertiary)']; 
+                const colors = ['var(--color-accent-primary-highlight)', 'var(--color-accent-blue)', 'var(--color-accent-green)', 'var(--color-accent-purple)', 'var(--color-accent-yellow)'];
 
-                for (let i = 0; i < 20; i++) { 
+                for (let i = 0; i < 40; i++) { /* Even more confetti particles */
                     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-                    createConfetti(centerX + (Math.random() - 0.5) * 30, centerY + (Math.random() - 0.5) * 30, randomColor); 
+                    createConfetti(centerX + (Math.random() - 0.5) * 50, centerY + (Math.random() - 0.5) * 50, randomColor);
                 }
             }
         }
-
 
         // --- Event Handlers ---
         // Handles changes to checkboxes (marking days complete/incomplete)
         function handleProgressToggle(e) {
             // Listen for changes on checkboxes within the daily cards container using event delegation
             if (e.target.matches('input[type="checkbox"]')) {
-                const dayNumber = parseInt(e.target.dataset.day, 10); 
+                const dayNumber = parseInt(e.target.dataset.day, 10);
                 if (e.target.checked) {
                     appState.completedDays.add(dayNumber);
                     triggerConfetti(e); // Trigger confetti on completion
@@ -971,18 +1111,18 @@
         function initializeApp() {
             loadData(); // Load saved progress from local storage
             createChart(); // Initialize the weekly hours chart
-            
+
             // Add event listener for main tabs (delegation)
             mainTabsContainer.addEventListener('click', (e) => {
-                if (e.target.matches('.main-tab-button')) {
-                    appState.currentMainTab = e.target.dataset.tab;
+                if (e.target.closest('.main-tab-button')) { /* Use closest for better click area */
+                    appState.currentMainTab = e.target.closest('.main-tab-button').dataset.tab;
                     renderMainTabs();
                 }
             });
 
             // Initial rendering of main tabs and their content (defaults to dashboard)
-            renderMainTabs(); 
-            
+            renderMainTabs();
+
             // Add event listener for daily task checkboxes (event delegation)
             dailyCardsContainer.addEventListener('change', handleProgressToggle);
         }
