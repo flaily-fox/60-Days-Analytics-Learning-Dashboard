@@ -1,0 +1,372 @@
+/* --- Custom Color Palette (Advillains Inspired - Dark & Vibrant) --- */
+:root {
+    --color-bg-primary: #121212; /* Very dark almost black background */
+    --color-bg-secondary: #1E1E1E; /* Slightly lighter dark gray for cards/panels */
+    --color-text-light: #E0E0E0; /* Light gray for primary text */
+    --color-text-medium: #A0A0A0; /* Medium gray for secondary text/details */
+    --color-text-dark: #707070; /* Darker gray for subtle text on light elements (if any) */
+
+    /* Accent Colors - High Contrast & Vibrant */
+    --color-accent-primary-highlight: #52C41A; /* Primary highlight - now green! */
+    --color-accent-blue: #1890FF; /* Vibrant blue for secondary accents/links */
+    --color-accent-green: #52C41A; /* Success/completion green (same as primary highlight for consistency) */
+    --color-accent-purple: #722ED1; /* Deep purple for tertiary accents */
+    --color-accent-yellow: #FAAD14; /* Warm yellow for additional highlights */
+
+    /* UI Specifics */
+    --color-border-dark: #333333; /* Dark border for separation */
+    --color-shadow-dark: rgba(0, 0, 0, 0.4); /* Pronounced dark shadow */
+    --color-shadow-hover: rgba(0, 0, 0, 0.6); /* Even deeper shadow on hover */
+    --color-progress-track: #333333; /* Dark track for progress bar */
+}
+
+/* Applying custom colors via Tailwind-like classes for consistency */
+.bg-primary { background-color: var(--color-bg-primary); }
+.bg-secondary { background-color: var(--color-bg-secondary); }
+.text-light { color: var(--color-text-light); }
+.text-medium { color: var(--color-text-medium); }
+.text-dark { color: var(--color-text-dark); }
+.text-accent-primary-highlight { color: var(--color-accent-primary-highlight); }
+.bg-accent-primary-highlight { background-color: var(--color-accent-primary-highlight); }
+.text-accent-blue { color: var(--color-accent-blue); }
+.bg-accent-blue { background-color: var(--color-accent-blue); }
+.text-accent-green { color: var(--color-accent-green); }
+.bg-accent-green { background-color: var(--color-accent-green); }
+.text-accent-purple { color: var(--color-accent-purple); }
+.border-dark { border-color: var(--color-border-dark); }
+.shadow-advillains { box-shadow: 0 10px 20px -8px var(--color-shadow-dark); }
+.shadow-advillains-hover { box-shadow: 0 15px 30px -10px var(--color-shadow-hover); }
+.progress-track { background-color: var(--color-progress-track); }
+
+/* --- Font (Inter) --- */
+.font-inter {
+    font-family: 'Inter', sans-serif;
+}
+
+/* --- General Styling --- */
+h1, h2, h3, h4 {
+    letter-spacing: -0.04em; /* Tighter letter spacing for impactful headings */
+}
+body {
+    line-height: 1.6; /* Slightly increased line height for readability on dark background */
+}
+
+/* --- Chart Container Styling --- */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: 280px; /* Slightly taller for better visualization */
+    background-color: var(--color-bg-secondary); /* Chart container matches card background */
+    border-radius: 1rem; /* Rounded corners for chart container */
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .chart-container {
+        height: 350px;
+    }
+}
+
+/* --- Main Tab Buttons Styling --- */
+.main-tab-button {
+    color: var(--color-text-medium);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-dark);
+    padding: 0.85rem 1.75rem; /* Slightly larger padding */
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
+    flex-grow: 1;
+    text-align: center;
+    border-radius: 0.75rem; /* More rounded */
+    box-shadow: var(--color-shadow-dark);
+}
+
+.main-tab-button:not(:last-child) {
+    margin-right: 0.85rem; /* More space between buttons */
+}
+
+.main-tab-button:hover {
+    background-color: #333333; /* Darker hover */
+    color: var(--color-text-light);
+    box-shadow: var(--color-shadow-hover);
+    transform: translateY(-3px); /* Noticeable lift */
+}
+
+.main-tab-button-active {
+    background: linear-gradient(135deg, var(--color-accent-primary-highlight) 0%, var(--color-accent-blue) 100%) !important; /* Gradient for active tab - now with green! */
+    color: var(--color-text-light) !important; /* Light text on active tab */
+    font-weight: 700;
+    box-shadow: 0 10px 20px -5px rgba(82, 196, 26, 0.4), 0 5px 10px -3px rgba(24, 144, 255, 0.4); /* Stronger shadow with accent colors */
+    border-color: transparent !important; /* No border for gradient */
+    transform: translateY(-3px); /* Ensure lift on active as well */
+}
+
+/* --- Tab Content Visibility --- */
+.tab-content.hidden {
+    display: none;
+}
+.tab-content.active-tab {
+    display: block;
+}
+
+/* --- Weekly Navigation Button Active State --- */
+.nav-button {
+    background-color: var(--color-bg-primary); /* Use primary background for inactive */
+    color: var(--color-text-medium);
+    border: 1px solid var(--color-border-dark);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 4px 8px -2px rgba(0,0,0,0.3);
+}
+
+.nav-button:hover {
+    background-color: #2F2F2F; /* Slightly lighter dark on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px -3px rgba(0,0,0,0.5);
+    color: var(--color-text-light);
+}
+
+.nav-button-active {
+    background: linear-gradient(45deg, var(--color-accent-blue) 0%, var(--color-accent-primary-highlight) 100%) !important; /* Gradient for active week - blue to green */
+    color: var(--color-text-light) !important;
+    font-weight: 700;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 16px -4px rgba(24, 144, 255, 0.4), 0 4px 8px -2px rgba(82, 196, 26, 0.4); /* Stronger shadow with accent colors */
+    border-color: transparent !important;
+}
+.nav-button-active:hover {
+    background: linear-gradient(45deg, var(--color-accent-blue) 0%, var(--color-accent-primary-highlight) 100%) !important;
+    color: var(--color-text-light) !important;
+}
+
+
+/* --- Daily Card Styling --- */
+.day-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-dark);
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-left: 6px solid var(--color-accent-blue); /* Initial border color */
+    position: relative;
+    box-shadow: var(--color-shadow-dark);
+}
+
+.day-card:hover {
+    transform: translateY(-8px); /* More noticeable lift */
+    box-shadow: 0 20px 40px -10px var(--color-shadow-hover);
+}
+
+/* Completed Card Styling */
+.completed-card {
+    background-color: #282828; /* Slightly different dark shade for completed */
+    border-left: 6px solid var(--color-accent-green); /* Green border for completed tasks */
+    opacity: 0.9; /* Slightly faded */
+}
+
+.completed-card h3,
+.completed-card .text-light,
+.completed-card .text-medium,
+.completed-card .text-accent-blue { /* Apply to all relevant text classes */
+    text-decoration: line-through;
+    color: var(--color-text-dark) !important; /* Muted color for completed text */
+}
+.completed-card a {
+    color: var(--color-text-dark) !important; /* Mute links in completed cards */
+    opacity: 0.7;
+    pointer-events: none; /* Disable clicks on completed links */
+}
+
+.day-card input[type="checkbox"] {
+    cursor: pointer;
+    transform: scale(1.4); /* Even larger checkbox */
+    min-width: 28px; /* Ensure a minimum size for tap target */
+    min-height: 28px;
+    accent-color: var(--color-accent-blue); /* Default accent color */
+    border: 2px solid var(--color-text-medium); /* Visible border for unchecked */
+    background-color: transparent; /* Transparent background */
+    border-radius: 0.375rem; /* Slightly less rounded than default */
+    transition: accent-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    -webkit-appearance: none; /* Remove default styling for custom tick */
+    appearance: none;
+    position: relative; /* Needed for ::after pseudo-element */
+}
+
+/* Custom tick mark for the checkbox */
+.day-card input[type="checkbox"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px; /* Width of the tick */
+    height: 12px; /* Height of the tick */
+    border: solid var(--color-text-light); /* Tick color */
+    border-width: 0 3px 3px 0;
+    transform: translate(-50%, -60%) rotate(45deg) scale(0); /* Hidden and scaled down initially */
+    opacity: 0;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
+.day-card input[type="checkbox"]:checked::after {
+    transform: translate(-50%, -60%) rotate(45deg) scale(1); /* Show and scale up when checked */
+    opacity: 1;
+}
+
+.day-card input[type="checkbox"]:checked {
+    accent-color: var(--color-accent-green); /* Green when checked */
+    border-color: var(--color-accent-green); /* Green border when checked */
+}
+.day-card input[type="checkbox"]:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(24, 144, 255, 0.5); /* Custom focus ring */
+}
+
+/* Motivation Quote Box */
+#motivation-quote {
+    background-color: #282828; /* Darker background for quote */
+    border: 1px solid var(--color-border-dark);
+    color: var(--color-text-medium);
+    transition: all 0.5s ease-in-out;
+    text-shadow: 0 0 5px rgba(0,0,0,0.3); /* Subtle text shadow for depth */
+}
+#motivation-quote .relative.z-10 {
+    background: linear-gradient(45deg, var(--color-accent-blue), var(--color-accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    font-weight: 600; /* Make quote text stand out more */
+    font-style: normal;
+}
+
+/* --- Progress Bar Fill Transition --- */
+.progress-bar-fill {
+    transition: width 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* --- Community Buttons --- */
+.community-button {
+    padding: 1.2rem 2.2rem; /* Even larger padding */
+    border-radius: 0.85rem; /* More rounded */
+    font-weight: 700;
+    color: var(--color-text-light); /* Light text on vibrant button */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.community-button:hover {
+    transform: translateY(-5px); /* More lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.whatsapp-button {
+    background: linear-gradient(45deg, #25D366, #1DA851); /* Gradient for WhatsApp */
+}
+.whatsapp-button:hover {
+    background: linear-gradient(45deg, #1DA851, #16803F); /* Darker gradient on hover */
+}
+
+.telegram-button {
+    background: linear-gradient(45deg, #0088CC, #005F99); /* Gradient for Telegram */
+}
+.telegram-button:hover {
+    background: linear-gradient(45deg, #005F99, #003A66); /* Darker gradient on hover */
+}
+
+/* --- Confetti Animation --- */
+#confetti-container {
+    overflow: hidden;
+}
+
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: currentColor;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+    animation: confetti-fall 1.8s forwards ease-out;
+    pointer-events: none;
+    box-shadow: 0 0 5px currentColor; /* Small glow effect */
+}
+
+@keyframes confetti-fall {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--dx), var(--dy)) scale(0.6) rotate(var(--rot));
+    }
+}
+
+/* Styling for individual resource category boxes within the resources tab */
+.resource-box {
+    background-color: var(--color-bg-secondary);
+    box-shadow: var(--color-shadow-dark);
+    border: 1px solid var(--color-border-dark);
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.3s ease-in-out;
+}
+
+.resource-box:hover {
+    transform: translateY(-7px); /* More lift on hover */
+    box-shadow: 0 18px 35px -12px var(--color-shadow-hover);
+    border-color: var(--color-accent-blue); /* Highlight border with accent blue */
+}
+
+.resource-box h3 {
+    color: var(--color-text-light);
+    transition: color 0.3s ease-in-out;
+}
+
+.resource-box:hover h3 {
+    color: var(--color-accent-primary-highlight); /* Change heading to green on hover */
+}
+
+.resource-box a {
+    color: var(--color-accent-blue);
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.resource-box a:hover {
+    color: var(--color-accent-primary-highlight); /* Green on hover */
+}
+
+/* --- SVG Icon Styling (common) --- */
+.icon-lg {
+    width: 30px; /* Slightly larger icons */
+    height: 30px;
+    margin-right: 0.6rem;
+    vertical-align: middle;
+    fill: currentColor; /* Use current text color for icon */
+    filter: drop-shadow(0 0 2px rgba(255,255,255,0.1)); /* Subtle glow for icons */
+}
+.icon-sm {
+    width: 18px;
+    height: 18px;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+    fill: currentColor;
+}
+
+
+/* Custom scrollbar for better aesthetics on dark theme */
+::-webkit-scrollbar {
+    width: 10px; /* Wider scrollbar */
+}
+::-webkit-scrollbar-track {
+    background: #282828; /* Darker track */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #555555; /* Medium gray thumb */
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #777777; /* Lighter on hover */
+}
